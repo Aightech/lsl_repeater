@@ -67,7 +67,7 @@ int main(int argc, char ** argv)
   std::vector<std::string> opt_flag(
   				    {"-n_in",
   					"-n_out",
-  					"-host"
+  					"-host",
 					"-v"});
   std::vector<std::string> opt_label(
   				     {"Lsl repeated stream's name",
