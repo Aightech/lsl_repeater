@@ -41,7 +41,7 @@ void scanStream(std::vector<lsl::stream_info>& to, bool verbose=true)
 	      std::cout <<"   > Nb. Channels: " <<  strm_info[i].channel_count() << std::endl;
 	      std::cout <<"   > Format:       " <<  channel_format_str[strm_info[i].channel_format()] << std::endl;
 	      std::cout <<"   > Host name:    " <<  strm_info[i].hostname() << std::endl;	  
-	      std::cout <<"   > Rate:         " <<  strm_info[i].nominal_srate() << std::endl;
+	      std::cout <<"   > Rate:         " <<  strm_info[i].nominal_srate() << std::endl<< std::endl;
 	      //channel_format_str[m_results[0].channel_format()];
 	    }
 
@@ -83,6 +83,8 @@ int main(int argc, char ** argv)
 
   //scan the available streams.
   std::vector<lsl::stream_info> strm_info;
+  scanStream(strm_info,false);
+  scanStream(strm_info,false);
   scanStream(strm_info);
   bool found_stream=false;
   int index_stream =-1;
