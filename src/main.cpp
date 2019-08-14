@@ -83,7 +83,7 @@ int main(int argc, char ** argv)
 
   //scan the available streams.
   std::vector<lsl::stream_info> strm_info;
-  scanStream(strm_info, false);
+  scanStream(strm_info);
   bool found_stream=false;
   int index_stream =-1;
   for(int i =0; i < strm_info.size(); i++)
