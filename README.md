@@ -1,5 +1,5 @@
-# lslpub_sigGen
-[https://aightech.github.io/lslpub_sigGen/html/index.html](Documentation)
+# lsl_repeater
+[https://aightech.github.io/lsl_repeater/html/index.html](Documentation)
 
 C++ programs that generate signal and publish it on a LSL stream.
 
@@ -10,7 +10,7 @@ None.
 #### 2.1.2 Steps
 - Clone the repository and go inside.
 ```bash
-git clone https://github.com/Aightech/lslpub_sigGen.git && cd lslpub_sigGen
+git clone https://github.com/Aightech/lsl_repeater.git && cd lsl_repeater
 ```
 - Create a build directory and go inside.
 - Configure the project.
@@ -28,7 +28,7 @@ mkdir build && cd build && cmake .. && cmake --build .
 #### Steps
 - Clone the repository and go inside.
 ```bash
-git clone https://github.com/Aightech/lslpub_sigGen.git && cd lslpub_sigGen
+git clone https://github.com/Aightech/lsl_repeater.git && cd lsl_repeater
 ```
 - Create a build directory.
 - Configure and generate the CMake project.
@@ -36,7 +36,7 @@ git clone https://github.com/Aightech/lslpub_sigGen.git && cd lslpub_sigGen
 ```bash
 mkdir build && cd build && cmake .. -G "MinGW Makefiles" && mingw32-make
 ```
-**Rq:** *The exe file is called lslpub_sigGen. This file has also been copied in the bin floder of the git repository root.*
+**Rq:** *The exe file is called lsl_repeater. This file has also been copied in the bin floder of the git repository root.*
 
 #### 2.2.3 Build LSL library on windows
 You can also follow this guide https://github.com/sccn/labstreaminglayer/blob/master/doc/BUILD.md.
