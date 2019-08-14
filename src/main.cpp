@@ -56,6 +56,7 @@ void scanStream(std::vector<lsl::stream_info>& to, bool verbose=true)
 	    to.push_back(strm_info[i]);
 	}
     }
+  std::cout << std::endl<< std::endl;
 
 
 }
@@ -66,26 +67,28 @@ int main(int argc, char ** argv)
   std::vector<std::string> opt_flag(
   				    {"-n_in",
   					"-n_out",
-  					"-host"});
+  					"-host"
+					"-v"});
   std::vector<std::string> opt_label(
   				     {"Lsl repeated stream's name",
   					 "Lsl repeating stream's name",
-  					 "Nane of the stream host"});
+  					 "Nane of the stream host",
+					 "Verbose"});
   std::vector<std::string> opt_value(
-  				     {"Right_Hand_Command",
+  				     {"Left_Hand_Command",
   					 "//",
-  					 "Ringo"});
+  					 "Ringo",
+					 "0"});
   get_arg(argc, argv, opt_flag, opt_label, opt_value);
   
   std::string stream_in_name = opt_value[0];
   std::string stream_out_name = (opt_value[1].compare("//")==0)?opt_value[0]:opt_value[1] ;
   std::string host_name = opt_value[2];
+  bool verbose = std::stoi(opt_value[3]);
 
   //scan the available streams.
   std::vector<lsl::stream_info> strm_info;
-  scanStream(strm_info,false);
-  scanStream(strm_info,false);
-  scanStream(strm_info);
+  scanStream(strm_info,verbose);
   bool found_stream=false;
   int index_stream =-1;
   for(int i =0; i < strm_info.size(); i++)
@@ -115,8 +118,12 @@ int main(int argc, char ** argv)
 	  std::vector<std::vector<float>> chunk;
 	  std::vector<double> timestamps;
 	  while(1)
-	    if (inlet.pull_chunk(chunk, timestamps))	
-	      outlet.push_chunk(chunk, timestamps);
+	    if (inlet.pull_chunk(chunk, timestamps))
+	      {
+		outlet.push_chunk(chunk, timestamps);
+		if(verbose)
+		   std::cout << "t: " << timestamps[0] << "  [ " << chunk[0][0] << " ... " << chunk[0][chunk[0].size()-1] << " ]\xd" << std::flush;
+	      }
 
 	}
       catch (std::exception& e)
